@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorosa'e Capital — Wealth Management</title>
+    <title>Lorosa'e Capital | Equity-Focused Investment Management</title>
+    <meta name="description" content="Lorosa'e Capital is a Timor-Leste rooted investment management firm delivering alpha through disciplined equity research and active portfolio management.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Ticker Bar -->
+<div class="ticker-bar">
+    <div class="ticker-track">
+        <span class="ticker-item">S&P 500 <b class="green">+0.84%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">NASDAQ <b class="green">+1.12%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">DOW <b class="green">+0.56%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">LOROSA'E FUND <b class="green">+8.00%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">10Y Treasury <b>4.38%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">VIX <b class="red">16.42</b></span>
+    </div>
+</div>
 
 <!-- Navigation -->
 <nav class="navbar">
     <div class="container nav-container">
         <a href="#" class="logo">
-            <span class="logo-icon">&#9788;</span>
-            <span class="logo-text">Lorosa'e Capital</span>
+            <div class="logo-mark">LC</div>
+            <div class="logo-group">
+                <span class="logo-text">LOROSA'E</span>
+                <span class="logo-sub">CAPITAL</span>
+            </div>
         </a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#fund">Fund</a></li>
             <li><a href="#performance">Performance</a></li>
-            <li><a href="#philosophy">Philosophy</a></li>
-            <li><a href="#contact" class="btn-nav">Get Started</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact" class="btn-nav">Investor Access</a></li>
         </ul>
         <button class="mobile-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -29,233 +52,464 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <header class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-grid-bg"></div>
     <div class="container hero-content">
-        <p class="hero-tag">Wealth Management &bull; Equity Markets</p>
-        <h1>Where the <span class="highlight">Rising Sun</span> meets rising returns.</h1>
-        <p class="hero-sub">Lorosa'e Capital is a Timor-Leste rooted investment fund focused on building wealth through disciplined equity market strategies.</p>
-        <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Invest With Us</a>
-            <a href="#performance" class="btn btn-outline">View Performance</a>
+        <div class="hero-left">
+            <div class="hero-badge">Equity-Focused Investment Management</div>
+            <h1>We invest in <br><span class="hero-accent">tomorrow's</span> market <br>leaders, <span class="hero-accent">today.</span></h1>
+            <p class="hero-sub">Lorosa'e Capital is Timor-Leste's first actively managed equity fund. We combine deep fundamental research with disciplined risk management to deliver consistent alpha.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                    <span>Start Investing</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#performance" class="btn btn-ghost">View Performance</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <span class="hc-label">Fund Performance</span>
+                    <span class="hc-badge green">ACTIVE</span>
+                </div>
+                <div class="hero-card-value">
+                    <span class="hc-return green">+8.0%</span>
+                    <span class="hc-period">Month 1 Return</span>
+                </div>
+                <svg viewBox="0 0 400 100" class="hero-chart">
+                    <defs>
+                        <linearGradient id="heroGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00d4aa" stop-opacity="0.15"/>
+                            <stop offset="100%" stop-color="#00d4aa" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,85 C20,83 40,80 80,75 C120,70 140,72 180,62 C220,52 250,55 280,42 C310,30 340,25 370,18 L400,12" stroke="#00d4aa" stroke-width="2" fill="none"/>
+                    <path d="M0,85 C20,83 40,80 80,75 C120,70 140,72 180,62 C220,52 250,55 280,42 C310,30 340,25 370,18 L400,12 L400,100 L0,100 Z" fill="url(#heroGrad)"/>
+                </svg>
+                <div class="hero-card-row">
+                    <div><span class="hc-sm-label">NAV</span><span class="hc-sm-value">$2,376</span></div>
+                    <div><span class="hc-sm-label">Inception</span><span class="hc-sm-value">Mar 2026</span></div>
+                    <div><span class="hc-sm-label">Strategy</span><span class="hc-sm-value">Long Equity</span></div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
-<!-- Stats Bar -->
-<section class="stats-bar">
-    <div class="container stats-grid">
-        <div class="stat">
-            <span class="stat-value">$2.4K</span>
-            <span class="stat-label">Fund Size</span>
+<!-- Metrics Bar -->
+<section class="metrics-bar">
+    <div class="container metrics-grid">
+        <div class="metric">
+            <span class="metric-num">$2,376</span>
+            <span class="metric-label">Net Asset Value</span>
         </div>
-        <div class="stat">
-            <span class="stat-value text-green">+8.0%</span>
-            <span class="stat-label">Month 1 Return</span>
+        <div class="metric">
+            <span class="metric-num green">+8.0%</span>
+            <span class="metric-label">Since Inception</span>
         </div>
-        <div class="stat">
-            <span class="stat-value">Equities</span>
-            <span class="stat-label">Asset Class</span>
+        <div class="metric">
+            <span class="metric-num">1</span>
+            <span class="metric-label">Active Strategy</span>
         </div>
-        <div class="stat">
-            <span class="stat-value">Active</span>
-            <span class="stat-label">Management Style</span>
+        <div class="metric">
+            <span class="metric-num">100%</span>
+            <span class="metric-label">Equity Allocation</span>
         </div>
     </div>
 </section>
 
-<!-- About Section -->
+<!-- About -->
 <section id="about" class="section">
-    <div class="container about-grid">
-        <div class="about-text">
-            <p class="section-tag">About Us</p>
-            <h2>Built from Timor-Leste. Invested in the world.</h2>
-            <p>Lorosa'e Capital was founded with a simple conviction: that disciplined, research-driven investing in the equity markets can generate meaningful wealth — regardless of where you start.</p>
-            <p>Named after the Tetum word for "Rising Sun," we carry the spirit of Timor-Leste's resilience and forward momentum into every investment decision we make. Our mission is to deliver consistent, transparent returns for our investors while contributing to a growing culture of financial literacy in the region.</p>
-        </div>
-        <div class="about-card">
-            <div class="card-accent"></div>
-            <h3>Our Edge</h3>
-            <ul class="edge-list">
-                <li>
-                    <span class="edge-icon">&#9670;</span>
-                    <div>
-                        <strong>Concentrated Portfolio</strong>
-                        <p>High-conviction positions in quality equities with strong fundamentals.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="edge-icon">&#9670;</span>
-                    <div>
-                        <strong>Risk-First Approach</strong>
-                        <p>Capital preservation is priority one. We size positions carefully and cut losses early.</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="edge-icon">&#9670;</span>
-                    <div>
-                        <strong>Full Transparency</strong>
-                        <p>Monthly performance reports. No hidden fees. You always know where your money is.</p>
-                    </div>
-                </li>
-            </ul>
+    <div class="container">
+        <div class="split-section">
+            <div class="split-left">
+                <span class="tag">About Lorosa'e Capital</span>
+                <h2>Born in Timor-Leste. <br>Built for global markets.</h2>
+            </div>
+            <div class="split-right">
+                <p class="body-lg">Named after the Tetum word for "Rising Sun," Lorosa'e Capital was founded with the belief that world-class investment management shouldn't be limited by geography.</p>
+                <p>We are Timor-Leste's first actively managed equity investment fund, combining rigorous fundamental analysis with systematic risk management. Our mission is to generate consistent, risk-adjusted returns for our investors while building a culture of financial sophistication in Southeast Asia's youngest nation.</p>
+                <p>Every dollar is invested with conviction, transparency, and discipline. We publish our performance openly, communicate with investors regularly, and never take a position we can't explain.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Performance Section -->
+<!-- Fund Overview -->
+<section id="fund" class="section section-alt">
+    <div class="container">
+        <span class="tag">Our Fund</span>
+        <h2>Investment Strategy Overview</h2>
+        <p class="section-desc">A single, concentrated equity strategy designed for long-term capital appreciation.</p>
+
+        <div class="fund-card">
+            <div class="fund-card-top">
+                <div class="fund-name-group">
+                    <h3>Lorosa'e Equity Fund</h3>
+                    <span class="fund-badge">Flagship Strategy</span>
+                </div>
+                <div class="fund-return">
+                    <span class="fund-return-num green">+8.0%</span>
+                    <span class="fund-return-label">Since Inception</span>
+                </div>
+            </div>
+
+            <div class="fund-details-grid">
+                <div class="fund-detail">
+                    <span class="fd-label">Strategy</span>
+                    <span class="fd-value">Active Long Equity</span>
+                </div>
+                <div class="fund-detail">
+                    <span class="fd-label">Universe</span>
+                    <span class="fd-value">Global Equities</span>
+                </div>
+                <div class="fund-detail">
+                    <span class="fd-label">Inception</span>
+                    <span class="fd-value">March 2026</span>
+                </div>
+                <div class="fund-detail">
+                    <span class="fd-label">NAV</span>
+                    <span class="fd-value">$2,376</span>
+                </div>
+                <div class="fund-detail">
+                    <span class="fd-label">Positions</span>
+                    <span class="fd-value">Concentrated (5-15)</span>
+                </div>
+                <div class="fund-detail">
+                    <span class="fd-label">Benchmark</span>
+                    <span class="fd-value">S&P 500</span>
+                </div>
+            </div>
+
+            <div class="fund-philosophy">
+                <h4>How We Invest</h4>
+                <div class="invest-pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 19V13a1 1 0 011-1h4a1 1 0 011 1v6M3 21h18M5 21V7l7-4 7 4v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h5>Fundamental Research</h5>
+                        <p>Bottom-up analysis of business quality, competitive moats, and management track record.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h5>Long-Term Horizon</h5>
+                        <p>We underwrite investments for 1-3 year holding periods. Patience is our competitive edge.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 16l4-4 4 4 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h5>Valuation Discipline</h5>
+                        <p>We only buy when price is materially below intrinsic value. Margin of safety is non-negotiable.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h5>Risk Management</h5>
+                        <p>Position sizing, correlation monitoring, and drawdown limits protect capital in all environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Performance -->
 <section id="performance" class="section section-dark">
     <div class="container">
-        <p class="section-tag tag-light">Performance</p>
-        <h2 class="text-center">Track Record</h2>
-        <p class="section-sub text-center">Transparent reporting of our fund's performance since inception.</p>
+        <span class="tag tag-dark">Performance</span>
+        <h2>Transparent. Auditable. Real.</h2>
+        <p class="section-desc light">We believe performance should be reported honestly. No cherry-picking. No gross-of-fee games.</p>
 
-        <div class="performance-grid">
-            <div class="perf-chart">
-                <div class="chart-header">
-                    <h3>Fund Growth</h3>
-                    <span class="chart-badge text-green">+8.0% MTD</span>
-                </div>
-                <div class="chart-area">
-                    <svg viewBox="0 0 600 200" class="chart-svg">
-                        <defs>
-                            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#c9952c" stop-opacity="0.3"/>
-                                <stop offset="100%" stop-color="#c9952c" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M0,180 C50,178 100,175 150,170 C200,165 250,155 300,145 C350,135 400,120 450,105 C500,90 550,70 600,50" stroke="#c9952c" stroke-width="3" fill="none"/>
-                        <path d="M0,180 C50,178 100,175 150,170 C200,165 250,155 300,145 C350,135 400,120 450,105 C500,90 550,70 600,50 L600,200 L0,200 Z" fill="url(#chartGrad)"/>
-                        <circle cx="600" cy="50" r="5" fill="#c9952c"/>
-                    </svg>
-                    <div class="chart-labels">
-                        <span>Start</span>
-                        <span>Week 1</span>
-                        <span>Week 2</span>
-                        <span>Week 3</span>
-                        <span>Week 4</span>
+        <div class="perf-grid">
+            <div class="perf-main">
+                <div class="perf-main-header">
+                    <div>
+                        <h3>Lorosa'e Equity Fund</h3>
+                        <p>Cumulative net performance since inception</p>
+                    </div>
+                    <div class="perf-tabs">
+                        <button class="perf-tab active">Since Inception</button>
                     </div>
                 </div>
+                <div class="perf-chart-area">
+                    <div class="perf-y-axis">
+                        <span>+10%</span><span>+8%</span><span>+6%</span><span>+4%</span><span>+2%</span><span>0%</span>
+                    </div>
+                    <div class="perf-chart-wrap">
+                        <svg viewBox="0 0 700 250" class="perf-svg" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#00d4aa" stop-opacity="0.12"/>
+                                    <stop offset="100%" stop-color="#00d4aa" stop-opacity="0"/>
+                                </linearGradient>
+                                <linearGradient id="benchGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#555" stop-opacity="0.05"/>
+                                    <stop offset="100%" stop-color="#555" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Gridlines -->
+                            <line x1="0" y1="0" x2="700" y2="0" stroke="rgba(255,255,255,0.04)" />
+                            <line x1="0" y1="50" x2="700" y2="50" stroke="rgba(255,255,255,0.04)" />
+                            <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.04)" />
+                            <line x1="0" y1="150" x2="700" y2="150" stroke="rgba(255,255,255,0.04)" />
+                            <line x1="0" y1="200" x2="700" y2="200" stroke="rgba(255,255,255,0.04)" />
+                            <!-- Benchmark (S&P) -->
+                            <path d="M0,210 C80,208 160,200 240,195 C320,190 400,185 480,178 C560,172 620,168 700,162" stroke="#555" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+                            <!-- Fund -->
+                            <path d="M0,230 C40,225 80,218 140,205 C200,192 240,196 300,175 C360,155 420,148 480,125 C540,102 600,80 660,55 L700,40" stroke="#00d4aa" stroke-width="2.5" fill="none"/>
+                            <path d="M0,230 C40,225 80,218 140,205 C200,192 240,196 300,175 C360,155 420,148 480,125 C540,102 600,80 660,55 L700,40 L700,250 L0,250 Z" fill="url(#perfGrad)"/>
+                        </svg>
+                        <div class="perf-x-labels">
+                            <span>Mar W1</span><span>Mar W2</span><span>Mar W3</span><span>Mar W4</span><span>Apr W1</span><span>Apr W2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <span class="legend-item"><span class="legend-line green-line"></span>Lorosa'e Fund (+8.0%)</span>
+                    <span class="legend-item"><span class="legend-line gray-line dashed"></span>S&P 500 Benchmark</span>
+                </div>
             </div>
 
-            <div class="perf-table-wrap">
-                <h3>Monthly Returns</h3>
-                <table class="perf-table">
-                    <thead>
-                        <tr>
-                            <th>Period</th>
-                            <th>Starting NAV</th>
-                            <th>Ending NAV</th>
-                            <th>Return</th>
-                        </tr>
-                    </thead>
+            <div class="perf-sidebar">
+                <div class="perf-stat-card">
+                    <span class="psc-label">Month 1 Return</span>
+                    <span class="psc-value green">+8.0%</span>
+                </div>
+                <div class="perf-stat-card">
+                    <span class="psc-label">Starting Capital</span>
+                    <span class="psc-value">$2,200</span>
+                </div>
+                <div class="perf-stat-card">
+                    <span class="psc-label">Current NAV</span>
+                    <span class="psc-value">$2,376</span>
+                </div>
+                <div class="perf-stat-card">
+                    <span class="psc-label">Profit Generated</span>
+                    <span class="psc-value green">+$176</span>
+                </div>
+
+                <table class="returns-table">
+                    <thead><tr><th>Period</th><th>Fund</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Month 1 (Current)</td>
-                            <td>$2,200</td>
-                            <td>$2,376</td>
-                            <td class="text-green">+8.0%</td>
-                        </tr>
+                        <tr><td>Month 1</td><td class="green">+8.0%</td></tr>
+                        <tr class="total-row"><td>Cumulative</td><td class="green">+8.0%</td></tr>
                     </tbody>
                 </table>
-                <p class="table-note">Performance is net of all fees. Past performance does not guarantee future results.</p>
+                <p class="perf-disclaimer">Net of all fees. Past performance is not indicative of future results.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Philosophy Section -->
-<section id="philosophy" class="section">
+<!-- Research / Insights -->
+<section id="research" class="section">
     <div class="container">
-        <p class="section-tag">Investment Philosophy</p>
-        <h2>How we think about markets</h2>
-        <div class="philosophy-grid">
-            <div class="phil-card">
-                <div class="phil-num">01</div>
-                <h3>Value Over Hype</h3>
-                <p>We invest in companies trading below their intrinsic value with catalysts for re-rating — not meme stocks or momentum plays.</p>
+        <div class="section-header-row">
+            <div>
+                <span class="tag">Research & Insights</span>
+                <h2>Our Latest Thinking</h2>
             </div>
-            <div class="phil-card">
-                <div class="phil-num">02</div>
-                <h3>Patience Pays</h3>
-                <p>Great returns come from holding quality positions through volatility. We think in quarters and years, not days and hours.</p>
-            </div>
-            <div class="phil-card">
-                <div class="phil-num">03</div>
-                <h3>Manage the Downside</h3>
-                <p>Position sizing, stop-losses, and diversification. We obsess over what can go wrong before thinking about what can go right.</p>
-            </div>
-            <div class="phil-card">
-                <div class="phil-num">04</div>
-                <h3>Stay Humble</h3>
-                <p>Markets are humbling. We review every trade, learn from mistakes, and never assume we're smarter than the market.</p>
+        </div>
+
+        <div class="research-grid">
+            <article class="research-card">
+                <div class="rc-category">Market Commentary</div>
+                <h3>Why We're Focused on Quality in a Late-Cycle Market</h3>
+                <p>As valuations stretch across indices, we explain our shift toward high-ROIC businesses with durable competitive advantages and strong free cash flow generation.</p>
+                <div class="rc-meta">
+                    <span>Apr 2026</span>
+                    <span>5 min read</span>
+                </div>
+            </article>
+            <article class="research-card">
+                <div class="rc-category">Fund Update</div>
+                <h3>Month 1 Performance: +8% and the Positions That Drove It</h3>
+                <p>A transparent breakdown of our first month — what we bought, why, and how our concentrated portfolio delivered 8% net returns out of the gate.</p>
+                <div class="rc-meta">
+                    <span>Apr 2026</span>
+                    <span>4 min read</span>
+                </div>
+            </article>
+            <article class="research-card">
+                <div class="rc-category">Investment Thesis</div>
+                <h3>Emerging Markets Alpha: The Southeast Asia Opportunity</h3>
+                <p>We outline our long-term thesis on why Southeast Asian equities — particularly overlooked small and mid-caps — offer asymmetric upside for patient investors.</p>
+                <div class="rc-meta">
+                    <span>Mar 2026</span>
+                    <span>7 min read</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="section section-alt">
+    <div class="container">
+        <span class="tag">Leadership</span>
+        <h2>The Team Behind the Fund</h2>
+        <p class="section-desc">Capital is only as good as the people managing it.</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">IC</div>
+                </div>
+                <div class="team-info">
+                    <h3>Igor de Carvalho da Costa</h3>
+                    <span class="team-role">Founder & Portfolio Manager</span>
+                    <p>Igor founded Lorosa'e Capital with the mission of bringing institutional-quality equity investing to Timor-Leste. He leads all investment research, portfolio construction, and risk management decisions.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA / Contact Section -->
-<section id="contact" class="section section-cta">
-    <div class="container cta-content">
-        <h2>Ready to grow your wealth?</h2>
-        <p>Whether you're a first-time investor or looking to diversify, we'd love to talk about how Lorosa'e Capital can work for you.</p>
-        <form class="contact-form" action="https://formsubmit.co/igorcarvalhobria@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Investor Inquiry — Lorosa'e Capital">
+<!-- Newsletter -->
+<section class="section section-dark newsletter-section">
+    <div class="container newsletter-container">
+        <div class="newsletter-content">
+            <h2>Stay Informed</h2>
+            <p>Get monthly performance updates, market commentary, and investment insights delivered to your inbox.</p>
+        </div>
+        <form class="newsletter-form" action="https://formsubmit.co/igorcarvalhobria@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Newsletter Signup — Lorosa'e Capital">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://id00012-art.github.io/lorosae-capital/">
             <input type="text" name="_honey" style="display:none">
-            <div class="form-row">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-            </div>
-            <div class="form-row">
-                <input type="text" name="phone" placeholder="Phone Number">
-                <select name="investment_interest">
-                    <option value="" disabled selected>Investment Interest</option>
-                    <option>Under $500</option>
-                    <option>$500 — $1,000</option>
-                    <option>$1,000 — $5,000</option>
-                    <option>$5,000+</option>
-                </select>
-            </div>
-            <textarea name="message" placeholder="Tell us about your investment goals..." rows="4"></textarea>
-            <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
-        <p class="form-disclaimer">Your information is kept strictly confidential. We will respond within 24 hours.</p>
+    </div>
+</section>
+
+<!-- Contact / Investor Access -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <span class="tag">Investor Access</span>
+                <h2>Start Your Investment Journey</h2>
+                <p>Whether you're deploying your first $100 or scaling a larger portfolio, we provide the same level of transparency, research rigor, and personal communication to every investor.</p>
+                <div class="contact-features">
+                    <div class="cf-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Monthly performance reports</span>
+                    </div>
+                    <div class="cf-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Direct access to portfolio manager</span>
+                    </div>
+                    <div class="cf-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Full position-level transparency</span>
+                    </div>
+                    <div class="cf-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>No lock-up period</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap">
+                <form class="contact-form" action="https://formsubmit.co/igorcarvalhobria@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Investor Inquiry — Lorosa'e Capital">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://id00012-art.github.io/lorosae-capital/">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="you@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" name="phone" placeholder="+670">
+                        </div>
+                        <div class="form-group">
+                            <label>Investment Size</label>
+                            <select name="investment_interest">
+                                <option value="" disabled selected>Select range</option>
+                                <option>Under $500</option>
+                                <option>$500 - $1,000</option>
+                                <option>$1,000 - $5,000</option>
+                                <option>$5,000 - $25,000</option>
+                                <option>$25,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Tell us about your investment goals and timeline..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Submit Inquiry</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <p class="form-note">Your information is confidential. We respond within 24 hours.</p>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="container footer-grid">
-        <div class="footer-brand">
-            <span class="logo-icon">&#9788;</span>
-            <span class="logo-text">Lorosa'e Capital</span>
-            <p>Timor-Leste's rising investment fund.<br>Building wealth through equity markets.</p>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-mark">LC</div>
+                    <div class="logo-group">
+                        <span class="logo-text">LOROSA'E</span>
+                        <span class="logo-sub">CAPITAL</span>
+                    </div>
+                </a>
+                <p>Timor-Leste's first actively managed equity investment fund. Building wealth through disciplined research and transparent portfolio management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#about">About</a>
+                <a href="#fund">Fund</a>
+                <a href="#performance">Performance</a>
+                <a href="#team">Team</a>
+            </div>
+            <div class="footer-col">
+                <h4>Investors</h4>
+                <a href="#contact">Invest</a>
+                <a href="#research">Research</a>
+                <a href="#">Fact Sheet</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Risk Disclosure</a>
+                <a href="#">Regulatory</a>
+            </div>
         </div>
-        <div class="footer-links">
-            <h4>Navigate</h4>
-            <a href="#about">About</a>
-            <a href="#performance">Performance</a>
-            <a href="#philosophy">Philosophy</a>
-            <a href="#contact">Contact</a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lorosa'e Capital. All rights reserved.</p>
+            <p class="footer-legal">This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy any securities. Investing involves risk, including the possible loss of principal. Past performance is not indicative of future results. Lorosa'e Capital does not provide tax, legal, or accounting advice.</p>
         </div>
-        <div class="footer-links">
-            <h4>Legal</h4>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Risk Disclosure</a>
-        </div>
-    </div>
-    <div class="container footer-bottom">
-        <p>&copy; 2026 Lorosa'e Capital. All rights reserved.</p>
-        <p class="disclaimer">Investing involves risk. Past performance is not indicative of future results. This website does not constitute financial advice.</p>
     </div>
 </footer>
 
 <script>
-// Mobile nav toggle
+// Mobile nav
 document.querySelector('.mobile-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('open');
     this.classList.toggle('active');
@@ -265,19 +519,21 @@ document.querySelector('.mobile-toggle').addEventListener('click', function() {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            document.querySelector('.nav-links').classList.remove('open');
-        }
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.querySelector('.nav-links').classList.remove('open'); }
     });
 });
 
-// Navbar scroll effect
+// Navbar scroll
 window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// Animate metrics on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.metric, .perf-stat-card, .pillar, .research-card').forEach(el => observer.observe(el));
 </script>
 
 </body>
