@@ -200,14 +200,18 @@
     <div class="container cta-content">
         <h2>Ready to grow your wealth?</h2>
         <p>Whether you're a first-time investor or looking to diversify, we'd love to talk about how Lorosa'e Capital can work for you.</p>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
+        <form class="contact-form" action="https://formsubmit.co/igorcarvalhobria@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Investor Inquiry — Lorosa'e Capital">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://id00012-art.github.io/lorosae-capital/">
+            <input type="text" name="_honey" style="display:none">
             <div class="form-row">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
             </div>
             <div class="form-row">
-                <input type="text" placeholder="Phone Number">
-                <select>
+                <input type="text" name="phone" placeholder="Phone Number">
+                <select name="investment_interest">
                     <option value="" disabled selected>Investment Interest</option>
                     <option>Under $500</option>
                     <option>$500 — $1,000</option>
@@ -215,7 +219,7 @@
                     <option>$5,000+</option>
                 </select>
             </div>
-            <textarea placeholder="Tell us about your investment goals..." rows="4"></textarea>
+            <textarea name="message" placeholder="Tell us about your investment goals..." rows="4"></textarea>
             <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
         </form>
         <p class="form-disclaimer">Your information is kept strictly confidential. We will respond within 24 hours.</p>
@@ -274,18 +278,6 @@ window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Form submit
-function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = 'Inquiry Sent!';
-    btn.style.background = '#2a7d4f';
-    setTimeout(() => {
-        btn.textContent = 'Send Inquiry';
-        btn.style.background = '';
-        e.target.reset();
-    }, 3000);
-}
 </script>
 
 </body>
