@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorosa'e Capital — Wealth Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <span class="logo-icon">&#9788;</span>
+            <span class="logo-text">Lorosa'e Capital</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#contact" class="btn-nav">Get Started</a></li>
+        </ul>
+        <button class="mobile-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+        <p class="hero-tag">Wealth Management &bull; Equity Markets</p>
+        <h1>Where the <span class="highlight">Rising Sun</span> meets rising returns.</h1>
+        <p class="hero-sub">Lorosa'e Capital is a Timor-Leste rooted investment fund focused on building wealth through disciplined equity market strategies.</p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Invest With Us</a>
+            <a href="#performance" class="btn btn-outline">View Performance</a>
+        </div>
+    </div>
+</header>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+    <div class="container stats-grid">
+        <div class="stat">
+            <span class="stat-value">$2.2K</span>
+            <span class="stat-label">Fund Size</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value text-green">+5.0%</span>
+            <span class="stat-label">Month 1 Return</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">Equities</span>
+            <span class="stat-label">Asset Class</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">Active</span>
+            <span class="stat-label">Management Style</span>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container about-grid">
+        <div class="about-text">
+            <p class="section-tag">About Us</p>
+            <h2>Built from Timor-Leste. Invested in the world.</h2>
+            <p>Lorosa'e Capital was founded with a simple conviction: that disciplined, research-driven investing in the equity markets can generate meaningful wealth — regardless of where you start.</p>
+            <p>Named after the Tetum word for "Rising Sun," we carry the spirit of Timor-Leste's resilience and forward momentum into every investment decision we make. Our mission is to deliver consistent, transparent returns for our investors while contributing to a growing culture of financial literacy in the region.</p>
+        </div>
+        <div class="about-card">
+            <div class="card-accent"></div>
+            <h3>Our Edge</h3>
+            <ul class="edge-list">
+                <li>
+                    <span class="edge-icon">&#9670;</span>
+                    <div>
+                        <strong>Concentrated Portfolio</strong>
+                        <p>High-conviction positions in quality equities with strong fundamentals.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="edge-icon">&#9670;</span>
+                    <div>
+                        <strong>Risk-First Approach</strong>
+                        <p>Capital preservation is priority one. We size positions carefully and cut losses early.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="edge-icon">&#9670;</span>
+                    <div>
+                        <strong>Full Transparency</strong>
+                        <p>Monthly performance reports. No hidden fees. You always know where your money is.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Performance Section -->
+<section id="performance" class="section section-dark">
+    <div class="container">
+        <p class="section-tag tag-light">Performance</p>
+        <h2 class="text-center">Track Record</h2>
+        <p class="section-sub text-center">Transparent reporting of our fund's performance since inception.</p>
+
+        <div class="performance-grid">
+            <div class="perf-chart">
+                <div class="chart-header">
+                    <h3>Fund Growth</h3>
+                    <span class="chart-badge text-green">+5.0% MTD</span>
+                </div>
+                <div class="chart-area">
+                    <svg viewBox="0 0 600 200" class="chart-svg">
+                        <defs>
+                            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#c9952c" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#c9952c" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,180 C50,178 100,175 150,170 C200,165 250,155 300,145 C350,135 400,120 450,105 C500,90 550,70 600,50" stroke="#c9952c" stroke-width="3" fill="none"/>
+                        <path d="M0,180 C50,178 100,175 150,170 C200,165 250,155 300,145 C350,135 400,120 450,105 C500,90 550,70 600,50 L600,200 L0,200 Z" fill="url(#chartGrad)"/>
+                        <circle cx="600" cy="50" r="5" fill="#c9952c"/>
+                    </svg>
+                    <div class="chart-labels">
+                        <span>Start</span>
+                        <span>Week 1</span>
+                        <span>Week 2</span>
+                        <span>Week 3</span>
+                        <span>Week 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="perf-table-wrap">
+                <h3>Monthly Returns</h3>
+                <table class="perf-table">
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Starting NAV</th>
+                            <th>Ending NAV</th>
+                            <th>Return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Month 1 (Current)</td>
+                            <td>$2,095</td>
+                            <td>$2,200</td>
+                            <td class="text-green">+5.0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="table-note">Performance is net of all fees. Past performance does not guarantee future results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Philosophy Section -->
+<section id="philosophy" class="section">
+    <div class="container">
+        <p class="section-tag">Investment Philosophy</p>
+        <h2>How we think about markets</h2>
+        <div class="philosophy-grid">
+            <div class="phil-card">
+                <div class="phil-num">01</div>
+                <h3>Value Over Hype</h3>
+                <p>We invest in companies trading below their intrinsic value with catalysts for re-rating — not meme stocks or momentum plays.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-num">02</div>
+                <h3>Patience Pays</h3>
+                <p>Great returns come from holding quality positions through volatility. We think in quarters and years, not days and hours.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-num">03</div>
+                <h3>Manage the Downside</h3>
+                <p>Position sizing, stop-losses, and diversification. We obsess over what can go wrong before thinking about what can go right.</p>
+            </div>
+            <div class="phil-card">
+                <div class="phil-num">04</div>
+                <h3>Stay Humble</h3>
+                <p>Markets are humbling. We review every trade, learn from mistakes, and never assume we're smarter than the market.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA / Contact Section -->
+<section id="contact" class="section section-cta">
+    <div class="container cta-content">
+        <h2>Ready to grow your wealth?</h2>
+        <p>Whether you're a first-time investor or looking to diversify, we'd love to talk about how Lorosa'e Capital can work for you.</p>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-row">
+                <input type="text" placeholder="Phone Number">
+                <select>
+                    <option value="" disabled selected>Investment Interest</option>
+                    <option>Under $500</option>
+                    <option>$500 — $1,000</option>
+                    <option>$1,000 — $5,000</option>
+                    <option>$5,000+</option>
+                </select>
+            </div>
+            <textarea placeholder="Tell us about your investment goals..." rows="4"></textarea>
+            <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
+        </form>
+        <p class="form-disclaimer">Your information is kept strictly confidential. We will respond within 24 hours.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <span class="logo-icon">&#9788;</span>
+            <span class="logo-text">Lorosa'e Capital</span>
+            <p>Timor-Leste's rising investment fund.<br>Building wealth through equity markets.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navigate</h4>
+            <a href="#about">About</a>
+            <a href="#performance">Performance</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+            <h4>Legal</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Risk Disclosure</a>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>&copy; 2026 Lorosa'e Capital. All rights reserved.</p>
+        <p class="disclaimer">Investing involves risk. Past performance is not indicative of future results. This website does not constitute financial advice.</p>
+    </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+document.querySelector('.mobile-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('open');
+    this.classList.toggle('active');
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelector('.nav-links').classList.remove('open');
+        }
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Form submit
+function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Inquiry Sent!';
+    btn.style.background = '#2a7d4f';
+    setTimeout(() => {
+        btn.textContent = 'Send Inquiry';
+        btn.style.background = '';
+        e.target.reset();
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
