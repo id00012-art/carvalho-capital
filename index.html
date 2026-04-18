@@ -16,7 +16,7 @@
 
 <!-- Ticker Bar -->
 <div class="ticker-bar">
-    <div class="ticker-track">
+    <div class="ticker-track ticker-scroll">
         <span class="ticker-item">S&P 500 <b class="green">+0.84%</b></span>
         <span class="ticker-sep">|</span>
         <span class="ticker-item">NASDAQ <b class="green">+1.12%</b></span>
@@ -28,6 +28,44 @@
         <span class="ticker-item">10Y Treasury <b>4.38%</b></span>
         <span class="ticker-sep">|</span>
         <span class="ticker-item">VIX <b class="red">16.42</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">AAPL <b class="green">+1.32%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">MSFT <b class="green">+0.89%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">NVDA <b class="green">+2.41%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">AMZN <b class="green">+1.05%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">GOOGL <b class="red">-0.23%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">TSLA <b class="green">+3.17%</b></span>
+        <span class="ticker-sep">|</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">S&P 500 <b class="green">+0.84%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">NASDAQ <b class="green">+1.12%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">DOW <b class="green">+0.56%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">CARVALHO FUND <b class="green">+12.00%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">10Y Treasury <b>4.38%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">VIX <b class="red">16.42</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">AAPL <b class="green">+1.32%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">MSFT <b class="green">+0.89%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">NVDA <b class="green">+2.41%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">AMZN <b class="green">+1.05%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">GOOGL <b class="red">-0.23%</b></span>
+        <span class="ticker-sep">|</span>
+        <span class="ticker-item">TSLA <b class="green">+3.17%</b></span>
+        <span class="ticker-sep">|</span>
     </div>
 </div>
 
@@ -57,7 +95,21 @@
 
 <!-- Hero -->
 <header class="hero">
+    <canvas id="wallstreet-bg"></canvas>
     <div class="hero-grid-bg"></div>
+    <!-- Floating financial symbols -->
+    <div class="floating-symbols">
+        <span class="float-sym" style="--x:10%;--y:20%;--d:18s;--delay:0s">$</span>
+        <span class="float-sym" style="--x:85%;--y:15%;--d:22s;--delay:3s">NYSE</span>
+        <span class="float-sym" style="--x:70%;--y:70%;--d:20s;--delay:1s">BULL</span>
+        <span class="float-sym" style="--x:20%;--y:75%;--d:25s;--delay:5s">%</span>
+        <span class="float-sym" style="--x:50%;--y:30%;--d:19s;--delay:2s">IPO</span>
+        <span class="float-sym" style="--x:90%;--y:50%;--d:23s;--delay:4s">NASDAQ</span>
+        <span class="float-sym" style="--x:35%;--y:85%;--d:21s;--delay:6s">S&P</span>
+        <span class="float-sym" style="--x:60%;--y:10%;--d:17s;--delay:1.5s">DOW</span>
+        <span class="float-sym" style="--x:5%;--y:50%;--d:24s;--delay:3.5s">ROI</span>
+        <span class="float-sym" style="--x:45%;--y:60%;--d:20s;--delay:7s">ALPHA</span>
+    </div>
     <div class="container hero-content">
         <div class="hero-left">
             <div class="hero-badge">Equity-Focused Investment Management</div>
@@ -509,6 +561,177 @@
 </footer>
 
 <script>
+// ========== WALL STREET ANIMATED BACKGROUND ==========
+(function() {
+    const canvas = document.getElementById('wallstreet-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles, candlesticks, dataStreams;
+
+    function resize() {
+        const hero = document.querySelector('.hero');
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+    }
+
+    // Particles — connected dots (network effect)
+    function initParticles() {
+        particles = [];
+        const count = Math.floor((w * h) / 12000);
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                r: Math.random() * 2 + 0.5
+            });
+        }
+    }
+
+    // Mini candlestick charts floating around
+    function initCandlesticks() {
+        candlesticks = [];
+        const count = 6;
+        for (let i = 0; i < count; i++) {
+            const bars = [];
+            for (let j = 0; j < 8; j++) {
+                const open = 20 + Math.random() * 30;
+                const close = open + (Math.random() - 0.4) * 20;
+                const high = Math.max(open, close) + Math.random() * 8;
+                const low = Math.min(open, close) - Math.random() * 8;
+                bars.push({ open, close, high, low });
+            }
+            candlesticks.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.15,
+                bars,
+                opacity: 0.06 + Math.random() * 0.06,
+                scale: 0.6 + Math.random() * 0.5
+            });
+        }
+    }
+
+    // Streaming price numbers
+    function initDataStreams() {
+        dataStreams = [];
+        const tickers = ['2464.00', '1.12%', '4238.91', '0.84%', '12.00%', '16.42', '3.17%', '189.52', '2200.00'];
+        for (let i = 0; i < 15; i++) {
+            dataStreams.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vy: -0.3 - Math.random() * 0.5,
+                text: tickers[Math.floor(Math.random() * tickers.length)],
+                opacity: 0.04 + Math.random() * 0.06,
+                size: 10 + Math.random() * 6
+            });
+        }
+    }
+
+    function drawParticles() {
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    ctx.strokeStyle = `rgba(0,212,170,${0.08 * (1 - dist / 120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        // Draw dots
+        particles.forEach(p => {
+            ctx.fillStyle = `rgba(0,212,170,0.3)`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    }
+
+    function drawCandlesticks() {
+        candlesticks.forEach(cs => {
+            ctx.save();
+            ctx.translate(cs.x, cs.y);
+            ctx.scale(cs.scale, cs.scale);
+            ctx.globalAlpha = cs.opacity;
+            cs.bars.forEach((bar, i) => {
+                const x = i * 10;
+                const bullish = bar.close > bar.open;
+                ctx.strokeStyle = bullish ? '#00d4aa' : '#ef4444';
+                ctx.fillStyle = bullish ? '#00d4aa' : '#ef4444';
+                // Wick
+                ctx.beginPath();
+                ctx.moveTo(x + 3, bar.high);
+                ctx.lineTo(x + 3, bar.low);
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                // Body
+                const top = Math.min(bar.open, bar.close);
+                const bodyH = Math.max(Math.abs(bar.close - bar.open), 2);
+                if (bullish) {
+                    ctx.fillRect(x, top, 6, bodyH);
+                } else {
+                    ctx.strokeRect(x, top, 6, bodyH);
+                }
+            });
+            ctx.restore();
+        });
+    }
+
+    function drawDataStreams() {
+        ctx.font = '500 12px "JetBrains Mono", monospace';
+        dataStreams.forEach(ds => {
+            ctx.fillStyle = `rgba(0,212,170,${ds.opacity})`;
+            ctx.font = `500 ${ds.size}px "JetBrains Mono", monospace`;
+            ctx.fillText(ds.text, ds.x, ds.y);
+        });
+    }
+
+    function update() {
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > w) p.vx *= -1;
+            if (p.y < 0 || p.y > h) p.vy *= -1;
+        });
+        candlesticks.forEach(cs => {
+            cs.x += cs.vx; cs.y += cs.vy;
+            if (cs.x < -100 || cs.x > w + 100) cs.vx *= -1;
+            if (cs.y < -80 || cs.y > h + 80) cs.vy *= -1;
+        });
+        dataStreams.forEach(ds => {
+            ds.y += ds.vy;
+            if (ds.y < -20) {
+                ds.y = h + 20;
+                ds.x = Math.random() * w;
+            }
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+        drawParticles();
+        drawCandlesticks();
+        drawDataStreams();
+        update();
+        requestAnimationFrame(animate);
+    }
+
+    resize();
+    initParticles();
+    initCandlesticks();
+    initDataStreams();
+    animate();
+    window.addEventListener('resize', () => { resize(); initParticles(); initCandlesticks(); initDataStreams(); });
+})();
+
+// ========== SITE INTERACTIONS ==========
 document.querySelector('.mobile-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('open');
     this.classList.toggle('active');

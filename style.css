@@ -56,21 +56,29 @@ img { max-width: 100%; }
     padding: 8px 0;
     overflow: hidden;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
 }
 
 .ticker-track {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 20px;
     font-family: var(--font-mono);
     font-size: 11px;
     color: rgba(255,255,255,0.5);
     letter-spacing: 0.5px;
     white-space: nowrap;
-    overflow-x: auto;
-    padding: 0 24px;
     scrollbar-width: none;
+}
+
+.ticker-scroll {
+    animation: tickerScroll 40s linear infinite;
+    width: max-content;
+}
+
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .ticker-track::-webkit-scrollbar { display: none; }
@@ -204,6 +212,15 @@ img { max-width: 100%; }
     padding: 80px 0 100px;
 }
 
+#wallstreet-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
 .hero-grid-bg {
     position: absolute;
     inset: 0;
@@ -211,14 +228,55 @@ img { max-width: 100%; }
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
+    z-index: 1;
+    animation: gridDrift 20s linear infinite;
+}
+
+@keyframes gridDrift {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
 }
 
 .hero-grid-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(0,212,170,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.04) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 30% 50%, rgba(0,212,170,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.05) 0%, transparent 50%);
+    animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* Floating financial symbols */
+.floating-symbols {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float-sym {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(0,212,170,0.07);
+    animation: floatSym var(--d) ease-in-out infinite var(--delay);
+    letter-spacing: 2px;
+}
+
+@keyframes floatSym {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
+    25% { transform: translate(30px, -40px) rotate(3deg); opacity: 0.09; }
+    50% { transform: translate(-20px, -70px) rotate(-2deg); opacity: 0.06; }
+    75% { transform: translate(40px, -30px) rotate(4deg); opacity: 0.1; }
 }
 
 .hero-content {
