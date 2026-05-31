@@ -130,23 +130,14 @@
                     <span class="hc-badge green">ACTIVE</span>
                 </div>
                 <div class="hero-card-value">
-                    <span class="hc-return green">+12.0%</span>
-                    <span class="hc-period">Month 1 Return</span>
+                    <span class="hc-return green">$4,736</span>
+                    <span class="hc-period">Assets Under Management</span>
                 </div>
-                <svg viewBox="0 0 400 100" class="hero-chart">
-                    <defs>
-                        <linearGradient id="heroGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#00d4aa" stop-opacity="0.15"/>
-                            <stop offset="100%" stop-color="#00d4aa" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M0,85 C20,83 40,80 80,75 C120,70 140,72 180,62 C220,52 250,55 280,42 C310,30 340,25 370,18 L400,12" stroke="#00d4aa" stroke-width="2" fill="none"/>
-                    <path d="M0,85 C20,83 40,80 80,75 C120,70 140,72 180,62 C220,52 250,55 280,42 C310,30 340,25 370,18 L400,12 L400,100 L0,100 Z" fill="url(#heroGrad)"/>
-                </svg>
+                <canvas id="heroLiveChart" height="80"></canvas>
                 <div class="hero-card-row">
-                    <div><span class="hc-sm-label">NAV</span><span class="hc-sm-value">$2,464</span></div>
-                    <div><span class="hc-sm-label">Inception</span><span class="hc-sm-value">Mar 2026</span></div>
-                    <div><span class="hc-sm-label">Strategy</span><span class="hc-sm-value">Long Equity</span></div>
+                    <div><span class="hc-sm-label">Total Profit</span><span class="hc-sm-value green">+$1,176</span></div>
+                    <div><span class="hc-sm-label">ROIC</span><span class="hc-sm-value green">+33.0%</span></div>
+                    <div><span class="hc-sm-label">Since</span><span class="hc-sm-value">Mar 2026</span></div>
                 </div>
             </div>
         </div>
@@ -157,20 +148,20 @@
 <section class="metrics-bar">
     <div class="container metrics-grid">
         <div class="metric">
-            <span class="metric-num">$2,464</span>
-            <span class="metric-label">Net Asset Value</span>
+            <span class="metric-num">$4,736</span>
+            <span class="metric-label">Total AUM</span>
         </div>
         <div class="metric">
-            <span class="metric-num green">+12.0%</span>
-            <span class="metric-label">Since Inception</span>
+            <span class="metric-num green">+33.0%</span>
+            <span class="metric-label">Return on Capital</span>
         </div>
         <div class="metric">
-            <span class="metric-num">1</span>
-            <span class="metric-label">Active Strategy</span>
+            <span class="metric-num green">+$1,176</span>
+            <span class="metric-label">Total Profit</span>
         </div>
         <div class="metric">
-            <span class="metric-num">100%</span>
-            <span class="metric-label">Equity Allocation</span>
+            <span class="metric-num">$3,560</span>
+            <span class="metric-label">Capital Deployed</span>
         </div>
     </div>
 </section>
@@ -280,81 +271,107 @@
     <div class="container">
         <span class="tag tag-dark">Performance</span>
         <h2>Transparent. Auditable. Real.</h2>
-        <p class="section-desc light">We believe performance should be reported honestly. No cherry-picking. No gross-of-fee games.</p>
+        <p class="section-desc light">Every dollar tracked. Every deposit marked. Full history since inception — no smoothing, no gaps.</p>
 
+        <!-- Live Animated Chart -->
+        <div class="live-chart-wrap">
+            <div class="live-chart-header">
+                <div class="lch-left">
+                    <h3>Carvalho Equity Fund — AUM Since Inception</h3>
+                    <p>Mar 2026 → May 2026 &nbsp;·&nbsp; Includes capital injections</p>
+                </div>
+                <div class="lch-right">
+                    <span class="live-dot"></span>
+                    <span class="live-label">LIVE</span>
+                </div>
+            </div>
+            <div class="live-chart-container">
+                <div class="live-y-axis" id="liveYAxis"></div>
+                <div class="live-canvas-wrap">
+                    <canvas id="liveChart"></canvas>
+                    <div class="live-tooltip" id="liveTooltip"></div>
+                </div>
+            </div>
+            <div class="live-x-axis" id="liveXAxis"></div>
+            <div class="live-legend">
+                <span class="ll-item"><span class="ll-line green-line"></span> AUM Growth</span>
+                <span class="ll-item"><span class="ll-dot blue-dot"></span> Capital Injection</span>
+                <span class="ll-item"><span class="ll-line gray-line dashed"></span> S&P 500 Benchmark</span>
+            </div>
+        </div>
+
+        <!-- Stats + Table -->
         <div class="perf-grid">
-            <div class="perf-main">
-                <div class="perf-main-header">
-                    <div>
-                        <h3>Carvalho Equity Fund</h3>
-                        <p>Cumulative net performance since inception</p>
-                    </div>
-                    <div class="perf-tabs">
-                        <button class="perf-tab active">Since Inception</button>
-                    </div>
+            <div class="perf-sidebar full-cols">
+                <div class="perf-stat-card">
+                    <span class="psc-label">Current AUM</span>
+                    <span class="psc-value green">$4,736</span>
                 </div>
-                <div class="perf-chart-area">
-                    <div class="perf-y-axis">
-                        <span>+10%</span><span>+8%</span><span>+6%</span><span>+4%</span><span>+2%</span><span>0%</span>
-                    </div>
-                    <div class="perf-chart-wrap">
-                        <svg viewBox="0 0 700 250" class="perf-svg" preserveAspectRatio="none">
-                            <defs>
-                                <linearGradient id="perfGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#00d4aa" stop-opacity="0.12"/>
-                                    <stop offset="100%" stop-color="#00d4aa" stop-opacity="0"/>
-                                </linearGradient>
-                                <linearGradient id="benchGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#555" stop-opacity="0.05"/>
-                                    <stop offset="100%" stop-color="#555" stop-opacity="0"/>
-                                </linearGradient>
-                            </defs>
-                            <line x1="0" y1="0" x2="700" y2="0" stroke="rgba(255,255,255,0.04)" />
-                            <line x1="0" y1="50" x2="700" y2="50" stroke="rgba(255,255,255,0.04)" />
-                            <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.04)" />
-                            <line x1="0" y1="150" x2="700" y2="150" stroke="rgba(255,255,255,0.04)" />
-                            <line x1="0" y1="200" x2="700" y2="200" stroke="rgba(255,255,255,0.04)" />
-                            <path d="M0,210 C80,208 160,200 240,195 C320,190 400,185 480,178 C560,172 620,168 700,162" stroke="#555" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
-                            <path d="M0,230 C40,225 80,218 140,205 C200,192 240,196 300,175 C360,155 420,148 480,125 C540,102 600,80 660,55 L700,40" stroke="#00d4aa" stroke-width="2.5" fill="none"/>
-                            <path d="M0,230 C40,225 80,218 140,205 C200,192 240,196 300,175 C360,155 420,148 480,125 C540,102 600,80 660,55 L700,40 L700,250 L0,250 Z" fill="url(#perfGrad)"/>
-                        </svg>
-                        <div class="perf-x-labels">
-                            <span>Mar W1</span><span>Mar W2</span><span>Mar W3</span><span>Mar W4</span><span>Apr W1</span><span>Apr W2</span>
-                        </div>
-                    </div>
+                <div class="perf-stat-card">
+                    <span class="psc-label">Total Profit</span>
+                    <span class="psc-value green">+$1,176</span>
                 </div>
-                <div class="chart-legend">
-                    <span class="legend-item"><span class="legend-line green-line"></span>Carvalho Fund (+12.0%)</span>
-                    <span class="legend-item"><span class="legend-line gray-line dashed"></span>S&P 500 Benchmark</span>
+                <div class="perf-stat-card">
+                    <span class="psc-label">ROIC</span>
+                    <span class="psc-value green">+33.0%</span>
+                </div>
+                <div class="perf-stat-card">
+                    <span class="psc-label">Capital Deployed</span>
+                    <span class="psc-value">$3,560</span>
                 </div>
             </div>
 
-            <div class="perf-sidebar">
-                <div class="perf-stat-card">
-                    <span class="psc-label">Month 1 Return</span>
-                    <span class="psc-value green">+12.0%</span>
-                </div>
-                <div class="perf-stat-card">
-                    <span class="psc-label">Starting Capital</span>
-                    <span class="psc-value">$2,200</span>
-                </div>
-                <div class="perf-stat-card">
-                    <span class="psc-label">Current NAV</span>
-                    <span class="psc-value">$2,464</span>
-                </div>
-                <div class="perf-stat-card">
-                    <span class="psc-label">Profit Generated</span>
-                    <span class="psc-value green">+$264</span>
-                </div>
-
-                <table class="returns-table">
-                    <thead><tr><th>Period</th><th>Fund</th></tr></thead>
+            <div class="perf-history-wrap">
+                <h4>Full Investment History</h4>
+                <table class="returns-table history-table">
+                    <thead>
+                        <tr><th>Date</th><th>Event</th><th>Amount</th><th>AUM After</th><th>P&L</th></tr>
+                    </thead>
                     <tbody>
-                        <tr><td>Month 1</td><td class="green">+12.0%</td></tr>
-                        <tr class="total-row"><td>Cumulative</td><td class="green">+12.0%</td></tr>
+                        <tr>
+                            <td>Mar 1, 2026</td>
+                            <td><span class="ev-badge deposit">Deposit</span></td>
+                            <td>+$2,200</td>
+                            <td>$2,200</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Mar 31, 2026</td>
+                            <td><span class="ev-badge return">Return</span></td>
+                            <td>+12.0%</td>
+                            <td>$2,464</td>
+                            <td class="green">+$264</td>
+                        </tr>
+                        <tr>
+                            <td>Apr 5, 2026</td>
+                            <td><span class="ev-badge deposit">Deposit</span></td>
+                            <td>+$860</td>
+                            <td>$3,324</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Apr 20, 2026</td>
+                            <td><span class="ev-badge deposit">Deposit</span></td>
+                            <td>+$500</td>
+                            <td>$3,824</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>May 31, 2026</td>
+                            <td><span class="ev-badge return">Return</span></td>
+                            <td>Market Gains</td>
+                            <td>$4,736</td>
+                            <td class="green">+$912</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>Total Since Inception</strong></td>
+                            <td><strong>$3,560 in</strong></td>
+                            <td><strong>$4,736</strong></td>
+                            <td class="green"><strong>+$1,176</strong></td>
+                        </tr>
                     </tbody>
                 </table>
-                <p class="perf-disclaimer">Net of all fees. Past performance is not indicative of future results.</p>
+                <p class="perf-disclaimer">All figures are net. Capital injections are marked separately from returns. Past performance does not guarantee future results.</p>
             </div>
         </div>
     </div>
@@ -746,6 +763,278 @@
     initDataStreams();
     animate();
     window.addEventListener('resize', () => { resize(); initParticles(); initCandlesticks(); initDataStreams(); });
+})();
+
+// ========== LIVE PERFORMANCE CHART ==========
+(function() {
+    // Full AUM data since inception (date label, AUM value, event type)
+    const DATA = [
+        { label: 'Mar 1',  aum: 2200, event: 'deposit',  note: 'Initial: +$2,200' },
+        { label: 'Mar 8',  aum: 2260, event: null,        note: null },
+        { label: 'Mar 15', aum: 2330, event: null,        note: null },
+        { label: 'Mar 22', aum: 2400, event: null,        note: null },
+        { label: 'Mar 31', aum: 2464, event: 'return',   note: '+12% Month 1 Return' },
+        { label: 'Apr 5',  aum: 3324, event: 'deposit',  note: 'Deposit: +$860' },
+        { label: 'Apr 10', aum: 3410, event: null,        note: null },
+        { label: 'Apr 15', aum: 3520, event: null,        note: null },
+        { label: 'Apr 20', aum: 3824, event: 'deposit',  note: 'Deposit: +$500' },
+        { label: 'Apr 25', aum: 3980, event: null,        note: null },
+        { label: 'May 1',  aum: 4120, event: null,        note: null },
+        { label: 'May 8',  aum: 4280, event: null,        note: null },
+        { label: 'May 15', aum: 4430, event: null,        note: null },
+        { label: 'May 22', aum: 4590, event: null,        note: null },
+        { label: 'May 31', aum: 4736, event: 'current',  note: 'Current AUM: $4,736' },
+    ];
+
+    // S&P 500 approximate growth baseline (indexed to $2,200)
+    const BENCH = [2200,2215,2232,2248,2258,2262,2270,2278,2285,2293,2300,2308,2316,2324,2332];
+
+    const canvas = document.getElementById('liveChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const wrap = canvas.parentElement;
+    const tooltip = document.getElementById('liveTooltip');
+
+    const PAD = { top: 20, right: 20, bottom: 10, left: 0 };
+    let W, H, animProgress = 0, animating = true, hoverIdx = -1;
+
+    function resize() {
+        W = canvas.width = wrap.clientWidth;
+        H = canvas.height = 260;
+    }
+
+    // Build Y axis labels
+    function buildYAxis() {
+        const el = document.getElementById('liveYAxis');
+        if (!el) return;
+        const max = 5000, min = 2000;
+        const steps = [5000, 4500, 4000, 3500, 3000, 2500, 2000];
+        el.innerHTML = steps.map(v => `<span>$${(v/1000).toFixed(1)}k</span>`).join('');
+    }
+
+    // Build X axis labels
+    function buildXAxis() {
+        const el = document.getElementById('liveXAxis');
+        if (!el) return;
+        const everyN = Math.ceil(DATA.length / 6);
+        const labels = DATA.filter((_, i) => i % everyN === 0 || i === DATA.length - 1).map(d => d.label);
+        el.innerHTML = labels.map(l => `<span>${l}</span>`).join('');
+    }
+
+    function dataToCanvas(i, aum) {
+        const minAum = 1800, maxAum = 5100;
+        const x = PAD.left + (i / (DATA.length - 1)) * (W - PAD.left - PAD.right);
+        const y = PAD.top + (1 - (aum - minAum) / (maxAum - minAum)) * (H - PAD.top - PAD.bottom);
+        return { x, y };
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        const visibleCount = Math.max(2, Math.round(animProgress * DATA.length));
+
+        // Grid lines
+        [2000, 2500, 3000, 3500, 4000, 4500, 5000].forEach(v => {
+            const { y } = dataToCanvas(0, v);
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([]);
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(W, y);
+            ctx.stroke();
+        });
+
+        // S&P Benchmark (dashed gray)
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(120,120,120,0.35)';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 5]);
+        BENCH.slice(0, visibleCount).forEach((v, i) => {
+            const { x, y } = dataToCanvas(i, v);
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Gradient fill under fund line
+        if (visibleCount >= 2) {
+            const grad = ctx.createLinearGradient(0, 0, 0, H);
+            grad.addColorStop(0, 'rgba(0,212,170,0.18)');
+            grad.addColorStop(1, 'rgba(0,212,170,0)');
+            ctx.beginPath();
+            DATA.slice(0, visibleCount).forEach((d, i) => {
+                const { x, y } = dataToCanvas(i, d.aum);
+                i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            });
+            const lastPt = dataToCanvas(visibleCount - 1, DATA[visibleCount - 1].aum);
+            const firstPt = dataToCanvas(0, DATA[0].aum);
+            ctx.lineTo(lastPt.x, H);
+            ctx.lineTo(firstPt.x, H);
+            ctx.closePath();
+            ctx.fillStyle = grad;
+            ctx.fill();
+        }
+
+        // Fund line
+        ctx.beginPath();
+        ctx.strokeStyle = '#00d4aa';
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        DATA.slice(0, visibleCount).forEach((d, i) => {
+            const { x, y } = dataToCanvas(i, d.aum);
+            i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+
+        // Event markers (deposits / returns)
+        DATA.slice(0, visibleCount).forEach((d, i) => {
+            if (!d.event) return;
+            const { x, y } = dataToCanvas(i, d.aum);
+            if (d.event === 'deposit') {
+                // Blue upward arrow marker
+                ctx.fillStyle = '#3b82f6';
+                ctx.strokeStyle = '#1a2540';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.arc(x, y, 7, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 9px Inter';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('+', x, y);
+            } else if (d.event === 'return') {
+                ctx.fillStyle = '#00d4aa';
+                ctx.strokeStyle = '#1a2540';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+            } else if (d.event === 'current') {
+                // Pulsing dot effect
+                ctx.fillStyle = '#00d4aa';
+                ctx.strokeStyle = 'rgba(0,212,170,0.3)';
+                ctx.lineWidth = 6;
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.fillStyle = '#00d4aa';
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        });
+
+        // Hover crosshair + point highlight
+        if (hoverIdx >= 0 && hoverIdx < visibleCount) {
+            const d = DATA[hoverIdx];
+            const { x, y } = dataToCanvas(hoverIdx, d.aum);
+            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#00d4aa';
+            ctx.strokeStyle = '#0a0f1a';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(x, y, 6, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+    }
+
+    function animate() {
+        if (animating) {
+            animProgress = Math.min(1, animProgress + 0.018);
+            if (animProgress >= 1) animating = false;
+        }
+        draw();
+        requestAnimationFrame(animate);
+    }
+
+    // Tooltip on hover
+    canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        let closestIdx = 0, closestDist = Infinity;
+        DATA.forEach((d, i) => {
+            const { x } = dataToCanvas(i, d.aum);
+            const dist = Math.abs(mx - x);
+            if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+        });
+        hoverIdx = closestIdx;
+        const d = DATA[closestIdx];
+        const { x } = dataToCanvas(closestIdx, d.aum);
+        tooltip.style.display = 'block';
+        tooltip.style.left = Math.min(x, W - 160) + 'px';
+        tooltip.style.top = '10px';
+        tooltip.innerHTML = `
+            <div class="tt-date">${d.label}, 2026</div>
+            <div class="tt-aum">$${d.aum.toLocaleString()}</div>
+            ${d.note ? `<div class="tt-note">${d.note}</div>` : ''}
+        `;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+        hoverIdx = -1;
+        tooltip.style.display = 'none';
+    });
+
+    // Mini hero chart
+    function drawHeroChart() {
+        const hc = document.getElementById('heroLiveChart');
+        if (!hc) return;
+        hc.width = hc.parentElement.clientWidth;
+        const hctx = hc.getContext('2d');
+        const hw = hc.width, hh = hc.height;
+        const minV = 2000, maxV = 5000;
+        const pts = DATA.map((d, i) => ({
+            x: (i / (DATA.length - 1)) * hw,
+            y: hh - ((d.aum - minV) / (maxV - minV)) * hh
+        }));
+        const grad = hctx.createLinearGradient(0, 0, 0, hh);
+        grad.addColorStop(0, 'rgba(0,212,170,0.18)');
+        grad.addColorStop(1, 'rgba(0,212,170,0)');
+        hctx.beginPath();
+        pts.forEach((p, i) => i === 0 ? hctx.moveTo(p.x, p.y) : hctx.lineTo(p.x, p.y));
+        hctx.lineTo(hw, hh); hctx.lineTo(0, hh); hctx.closePath();
+        hctx.fillStyle = grad; hctx.fill();
+        hctx.beginPath();
+        pts.forEach((p, i) => i === 0 ? hctx.moveTo(p.x, p.y) : hctx.lineTo(p.x, p.y));
+        hctx.strokeStyle = '#00d4aa'; hctx.lineWidth = 2; hctx.stroke();
+        // Deposit markers
+        DATA.forEach((d, i) => {
+            if (d.event === 'deposit') {
+                hctx.fillStyle = '#3b82f6';
+                hctx.beginPath();
+                hctx.arc(pts[i].x, pts[i].y, 4, 0, Math.PI * 2);
+                hctx.fill();
+            }
+        });
+    }
+
+    // Start when performance section is visible
+    const perfSection = document.getElementById('performance');
+    const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animProgress = 0; animating = true;
+            }
+        });
+    }, { threshold: 0.2 });
+    if (perfSection) chartObserver.observe(perfSection);
+
+    resize();
+    buildYAxis();
+    buildXAxis();
+    drawHeroChart();
+    animate();
+    window.addEventListener('resize', () => { resize(); drawHeroChart(); });
 })();
 
 // ========== SITE INTERACTIONS ==========

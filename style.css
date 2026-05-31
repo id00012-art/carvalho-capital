@@ -663,10 +663,173 @@ img { max-width: 100%; }
 
 /* ---- PERFORMANCE ---- */
 
+/* ---- LIVE CHART ---- */
+.live-chart-wrap {
+    background: var(--bg-dark-card);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
+    padding: 28px 28px 16px;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.live-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.lch-left h3 { font-size: 16px; color: var(--white); margin-bottom: 4px; }
+.lch-left p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+.lch-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.live-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(0,212,170,0.4);
+    animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,170,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(0,212,170,0); }
+}
+
+.live-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 2px;
+}
+
+.live-chart-container {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.live-y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: rgba(255,255,255,0.2);
+    min-width: 44px;
+    text-align: right;
+    padding: 4px 0;
+}
+
+.live-canvas-wrap {
+    flex: 1;
+    position: relative;
+}
+
+#liveChart {
+    width: 100%;
+    display: block;
+    cursor: crosshair;
+}
+
+.live-tooltip {
+    display: none;
+    position: absolute;
+    background: rgba(15, 22, 41, 0.95);
+    border: 1px solid rgba(0,212,170,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    pointer-events: none;
+    z-index: 10;
+    min-width: 140px;
+    backdrop-filter: blur(10px);
+}
+
+.tt-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-bottom: 4px; font-family: var(--font-mono); }
+.tt-aum { font-size: 18px; font-weight: 700; color: var(--green); font-family: var(--font-display); }
+.tt-note { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+.live-x-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-left: 52px;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: rgba(255,255,255,0.2);
+}
+
+.live-legend {
+    display: flex;
+    gap: 24px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.ll-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+}
+
+.ll-line { width: 20px; height: 2px; border-radius: 1px; }
+.ll-dot { width: 10px; height: 10px; border-radius: 50%; }
+.blue-dot { background: #3b82f6; }
+
+/* Hero mini chart */
+#heroLiveChart {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Event badges in table */
+.ev-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.ev-badge.deposit { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.ev-badge.return { background: rgba(0,212,170,0.12); color: var(--green); }
+
+.history-table td { font-size: 13px; }
+.history-table th { white-space: nowrap; }
+
+.perf-history-wrap {
+    grid-column: 1 / -1;
+}
+
+.perf-history-wrap h4 {
+    font-size: 15px;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+/* ---- PERF GRID ---- */
 .perf-grid {
     display: grid;
-    grid-template-columns: 1.4fr 0.6fr;
+    grid-template-columns: 1fr;
     gap: 24px;
+}
+
+.perf-sidebar.full-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
 }
 
 .perf-main {
