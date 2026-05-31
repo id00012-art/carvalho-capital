@@ -82,6 +82,7 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#fund">Fund</a></li>
+            <li><a href="#holdings">Holdings</a></li>
             <li><a href="#performance">Performance</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#team">Team</a></li>
@@ -266,8 +267,76 @@
     </div>
 </section>
 
+<!-- Holdings -->
+<section id="holdings" class="section section-dark">
+    <div class="container">
+        <span class="tag tag-dark">Portfolio Holdings</span>
+        <h2>Live Positions</h2>
+        <p class="section-desc light">All 16 positions held in the Carvalho Equity Fund. Data as of May 31, 2026 via Robinhood.</p>
+
+        <div class="holdings-layout">
+            <!-- Donut Chart -->
+            <div class="holdings-chart-card">
+                <h3>Allocation by Position</h3>
+                <div class="donut-wrap">
+                    <canvas id="donutChart" width="240" height="240"></canvas>
+                    <div class="donut-center">
+                        <span class="donut-total">$4,736</span>
+                        <span class="donut-label">Total AUM</span>
+                    </div>
+                </div>
+                <div class="donut-legend" id="donutLegend"></div>
+            </div>
+
+            <!-- Stats Strip -->
+            <div class="holdings-stats">
+                <div class="hs-card">
+                    <span class="hs-label">Total Positions</span>
+                    <span class="hs-value">16</span>
+                </div>
+                <div class="hs-card">
+                    <span class="hs-label">Profitable</span>
+                    <span class="hs-value green">10</span>
+                </div>
+                <div class="hs-card">
+                    <span class="hs-label">Losing</span>
+                    <span class="hs-value red">6</span>
+                </div>
+                <div class="hs-card">
+                    <span class="hs-label">Best Performer</span>
+                    <span class="hs-value green">MU +$277.73</span>
+                </div>
+                <div class="hs-card">
+                    <span class="hs-label">Largest Position</span>
+                    <span class="hs-value">MU $682.19</span>
+                </div>
+                <div class="hs-card">
+                    <span class="hs-label">Total Return</span>
+                    <span class="hs-value green">+$515.82</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Holdings Table -->
+        <div class="holdings-table-wrap">
+            <div class="ht-header">
+                <span>Name</span>
+                <span>Symbol</span>
+                <span>Shares</span>
+                <span>Price</span>
+                <span>Avg Cost</span>
+                <span>Total Return</span>
+                <span>Equity</span>
+                <span>Alloc %</span>
+            </div>
+            <div class="ht-body" id="holdingsBody"></div>
+        </div>
+        <p class="perf-disclaimer" style="margin-top:16px">Data sourced from Robinhood brokerage account. Prices reflect last market close. All figures in USD.</p>
+    </div>
+</section>
+
 <!-- Performance -->
-<section id="performance" class="section section-dark">
+<section id="performance" class="section section-dark" style="background:#060e1a;">
     <div class="container">
         <span class="tag tag-dark">Performance</span>
         <h2>Transparent. Auditable. Real.</h2>
@@ -763,6 +832,183 @@
     initDataStreams();
     animate();
     window.addEventListener('resize', () => { resize(); initParticles(); initCandlesticks(); initDataStreams(); });
+})();
+
+// ========== PORTFOLIO HOLDINGS ==========
+(function() {
+    const HOLDINGS = [
+        { name: 'Micron Technology',      sym: 'MU',   shares: 0.707, price: 964.75,  avgCost: 571.99,  ret: 277.73, equity: 682.19 },
+        { name: 'AMD',                    sym: 'AMD',  shares: 0.955, price: 515.13,  avgCost: 429.26,  ret: 82.02,  equity: 492.02 },
+        { name: 'Alphabet Class A',       sym: 'GOOGL',shares: 1.113, price: 380.57,  avgCost: 367.58,  ret: 14.46,  equity: 423.46 },
+        { name: 'Taiwan Semiconductor',   sym: 'TSM',  shares: 0.962, price: 419.23,  avgCost: 424.28,  ret: -4.86,  equity: 403.35 },
+        { name: 'Broadcom',               sym: 'AVGO', shares: 0.889, price: 446.07,  avgCost: 410.13,  ret: 31.95,  equity: 396.61 },
+        { name: 'Apple',                  sym: 'AAPL', shares: 1,     price: 311.35,  avgCost: 311.66,  ret: -0.31,  equity: 311.35 },
+        { name: 'Eli Lilly',              sym: 'LLY',  shares: 0.273, price: 1105.00, avgCost: 1007.68, ret: 26.58,  equity: 301.84 },
+        { name: 'Visa',                   sym: 'V',    shares: 0.761, price: 327.00,  avgCost: 328.52,  ret: -1.16,  equity: 248.84 },
+        { name: 'MercadoLibre',           sym: 'MELI', shares: 0.141, price: 1690.13, avgCost: 1590.50, ret: 14.09,  equity: 239.09 },
+        { name: 'NVIDIA',                 sym: 'NVDA', shares: 1.114, price: 212.49,  avgCost: 193.85,  ret: 20.76,  equity: 236.67 },
+        { name: 'Amazon',                 sym: 'AMZN', shares: 0.783, price: 270.48,  avgCost: 223.58,  ret: 36.70,  equity: 211.70 },
+        { name: 'Danaher',                sym: 'DHR',  shares: 0.989, price: 182.67,  avgCost: 189.55,  ret: -6.81,  equity: 180.64 },
+        { name: 'JPMorgan Chase',         sym: 'JPM',  shares: 0.44,  price: 297.90,  avgCost: 285.67,  ret: 5.38,   equity: 131.04 },
+        { name: 'Procter & Gamble',       sym: 'PG',   shares: 1,     price: 143.56,  avgCost: 147.83,  ret: -4.27,  equity: 143.56 },
+        { name: 'Microsoft',              sym: 'MSFT', shares: 0.584, price: 449.99,  avgCost: 398.75,  ret: 29.91,  equity: 262.72 },
+        { name: 'iShares 0-3M Treasury',  sym: 'SGOV', shares: 0.709, price: 100.67,  avgCost: 100.56,  ret: 0.08,   equity: 71.34  },
+    ];
+
+    const TOTAL = HOLDINGS.reduce((s, h) => s + h.equity, 0);
+
+    const COLORS = [
+        '#00d4aa','#3b82f6','#8b5cf6','#f59e0b','#ef4444',
+        '#10b981','#06b6d4','#f97316','#ec4899','#84cc16',
+        '#6366f1','#14b8a6','#e879f9','#fb923c','#a3e635','#38bdf8'
+    ];
+
+    // Build holdings table
+    const tbody = document.getElementById('holdingsBody');
+    if (tbody) {
+        HOLDINGS.forEach((h, i) => {
+            const pct = ((h.equity / TOTAL) * 100).toFixed(1);
+            const retPct = (((h.price - h.avgCost) / h.avgCost) * 100).toFixed(2);
+            const isGreen = h.ret >= 0;
+            const row = document.createElement('div');
+            row.className = 'ht-row';
+            row.innerHTML = `
+                <span class="ht-name">
+                    <span class="ht-color-dot" style="background:${COLORS[i]}"></span>
+                    ${h.name}
+                </span>
+                <span class="ht-sym">${h.sym}</span>
+                <span class="ht-num">${h.shares}</span>
+                <span class="ht-num">$${h.price.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</span>
+                <span class="ht-num">$${h.avgCost.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</span>
+                <span class="ht-num ${isGreen ? 'green' : 'red'}">
+                    ${isGreen ? '▲' : '▼'} $${Math.abs(h.ret).toFixed(2)}
+                    <small>(${isGreen ? '+' : ''}${retPct}%)</small>
+                </span>
+                <span class="ht-num bold">$${h.equity.toFixed(2)}</span>
+                <span class="ht-num">
+                    <div class="alloc-bar-wrap">
+                        <div class="alloc-bar" style="width:${pct}%;background:${COLORS[i]}"></div>
+                        <span>${pct}%</span>
+                    </div>
+                </span>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // Build donut legend
+    const legend = document.getElementById('donutLegend');
+    if (legend) {
+        // Top 6 by equity
+        const top = [...HOLDINGS].sort((a,b) => b.equity - a.equity).slice(0, 6);
+        top.forEach((h, i) => {
+            const idx = HOLDINGS.indexOf(h);
+            const span = document.createElement('div');
+            span.className = 'dl-item';
+            span.innerHTML = `<span class="dl-dot" style="background:${COLORS[idx]}"></span><span>${h.sym}</span><span class="dl-pct">${((h.equity/TOTAL)*100).toFixed(1)}%</span>`;
+            legend.appendChild(span);
+        });
+        // Others
+        const othersDiv = document.createElement('div');
+        othersDiv.className = 'dl-item';
+        othersDiv.innerHTML = `<span class="dl-dot" style="background:#334155"></span><span>Others</span><span class="dl-pct">${(100 - top.reduce((s,h)=>s+(h.equity/TOTAL*100),0)).toFixed(1)}%</span>`;
+        legend.appendChild(othersDiv);
+    }
+
+    // Draw donut chart
+    function drawDonut() {
+        const canvas = document.getElementById('donutChart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const cx = 120, cy = 120, outerR = 105, innerR = 68;
+        let startAngle = -Math.PI / 2;
+        ctx.clearRect(0, 0, 240, 240);
+
+        HOLDINGS.forEach((h, i) => {
+            const slice = (h.equity / TOTAL) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, outerR, startAngle, startAngle + slice);
+            ctx.closePath();
+            ctx.fillStyle = COLORS[i];
+            ctx.fill();
+            startAngle += slice;
+        });
+
+        // Inner circle cutout
+        ctx.beginPath();
+        ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+        ctx.fillStyle = '#0f1629';
+        ctx.fill();
+
+        // Gap lines
+        startAngle = -Math.PI / 2;
+        HOLDINGS.forEach((h) => {
+            const slice = (h.equity / TOTAL) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.moveTo(cx + innerR * Math.cos(startAngle), cy + innerR * Math.sin(startAngle));
+            ctx.lineTo(cx + outerR * Math.cos(startAngle), cy + outerR * Math.sin(startAngle));
+            ctx.strokeStyle = '#0f1629';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            startAngle += slice;
+        });
+
+        // Hover interaction
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mx = e.clientX - rect.left - cx;
+            const my = e.clientY - rect.top - cy;
+            const dist = Math.sqrt(mx*mx + my*my);
+            if (dist < innerR || dist > outerR) {
+                canvas.title = '';
+                return;
+            }
+            let angle = Math.atan2(my, mx) + Math.PI / 2;
+            if (angle < 0) angle += Math.PI * 2;
+            let cumAngle = 0;
+            for (let i = 0; i < HOLDINGS.length; i++) {
+                cumAngle += (HOLDINGS[i].equity / TOTAL) * Math.PI * 2;
+                if (angle <= cumAngle) {
+                    const h = HOLDINGS[i];
+                    canvas.title = `${h.name} (${h.sym})\n$${h.equity.toFixed(2)} · ${((h.equity/TOTAL)*100).toFixed(1)}%`;
+                    break;
+                }
+            }
+        });
+
+        // Animate entrance
+        let prog = 0;
+        function animDonut() {
+            ctx.clearRect(0, 0, 240, 240);
+            let sa = -Math.PI / 2;
+            HOLDINGS.forEach((h, i) => {
+                const fullSlice = (h.equity / TOTAL) * Math.PI * 2;
+                const slice = fullSlice * prog;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.arc(cx, cy, outerR, sa, sa + slice);
+                ctx.closePath();
+                ctx.fillStyle = COLORS[i];
+                ctx.fill();
+                sa += fullSlice * prog > 0 ? fullSlice : 0;
+            });
+            ctx.beginPath();
+            ctx.arc(cx, cy, innerR, 0, Math.PI * 2);
+            ctx.fillStyle = '#0f1629';
+            ctx.fill();
+            if (prog < 1) { prog = Math.min(1, prog + 0.025); requestAnimationFrame(animDonut); }
+            else drawDonut();
+        }
+
+        const donutObs = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) { prog = 0; animDonut(); donutObs.disconnect(); }
+        }, { threshold: 0.3 });
+        donutObs.observe(canvas);
+    }
+
+    drawDonut();
 })();
 
 // ========== LIVE PERFORMANCE CHART ==========
